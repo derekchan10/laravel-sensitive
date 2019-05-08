@@ -9,11 +9,6 @@ Sensitive Fliter for Laravel5 based on [geek-dc/laravel-sensitive](https://githu
 composer require yankewei/laravel-sensitive
 ```
 
-## dump autoload
-```shell
-composer dump-autoload
-```
-
 ## For Laravel
 
 Add config

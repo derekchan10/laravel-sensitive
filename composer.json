@@ -9,13 +9,13 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "GeekDC\\Sensitive\\": "src"
+            "GeekDC\\Sensitive\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "GeekDC\\Sensitive\\LaravelSensitiveServiceProvider"
+                "GeekDC\\Sensitive\\LaravelSensitiveProvider"
             ],
             "aliases": {
                 "Sensitive": "GeekDC\\Sensitive\\Facades\\Sensitive"
