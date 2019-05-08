@@ -1,0 +1,25 @@
+{
+    "name": "geek-dc/laravel-sensitive",
+    "authors": [
+        {
+            "name": "derekchan",
+            "email": "dchan0831@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "GeekDC\\Sensitive\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GeekDC\\Sensitive\\LaravelSensitiveServiceProvider"
+            ],
+            "aliases": {
+                "Sensitive": "GeekDC\\Sensitive\\Facades\\Sensitive"
+            }
+        }
+    }
+}
