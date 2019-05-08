@@ -14,7 +14,7 @@ composer require yankewei/laravel-sensitive
 Add config
 
 ```shell
-php artisan vendor:publish --provider=GeekDC\Sensitive\LaravelSensitiveProvider
+php artisan vendor:publish --provider="GeekDC\Sensitive\LaravelSensitiveProvider"
 ```
 
 Execute database migration
