@@ -31,7 +31,7 @@ class LaravelSensitiveProvider extends ServiceProvider
         ]);
 
         // 註冊中間件
-        $this->app['router']->aliasMiddleware('Sensitive', \GeekDC\Sensitive\Middleware\SensitiveFilter::class);
+        $this->app['router']->aliasMiddleware('sensitive', \GeekDC\Sensitive\Middleware\SensitiveFilter::class);
 
         // 數據表
         $this->loadMigrationsFrom(__DIR__.'/migrations/2019_05_08_000000_create_sensitive_table.php');
