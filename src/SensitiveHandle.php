@@ -18,6 +18,7 @@ class SensitiveHandle
         $len = mb_strlen($content);
 
         $wordMap = $this->wordMap;
+
         for ($i=0; $i < $len; $i++) {
             $txt = mb_substr($content, $i, 1);
 
@@ -27,7 +28,8 @@ class SensitiveHandle
 
             if (!isset($wordMap[$txt])) {
                 // reset hashmap
-                $wordMap = $this->wordMap;
+                $wordMap = isset($this->wordMap[$txt]) ? $this->wordMap[$txt] : $this->wordMap;
+
                 continue;
             }
             
