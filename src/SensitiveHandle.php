@@ -32,7 +32,7 @@ class SensitiveHandle
 
                 continue;
             }
-            
+
             if ($wordMap[$txt]['end']) {
                 return true;
             }
@@ -49,20 +49,22 @@ class SensitiveHandle
      */
     private function setWords()
     {
-        $words = Cache::remember('sensitive.words', config('sensitive.cache'), function () {
-            return DB::table(config('sensitive.table'))->where('is_del', 0)->pluck(config('sensitive.field'))->toArray();
-        });
+        $this->wordMap = Cache::remember('sensitive.words', config('sensitive.cache'), function () {
+            $words = DB::table(config('sensitive.table'))->where('is_del', 0)->pluck(config('sensitive.field'))->toArray();
 
-        foreach ($words as $word) {
-            $this->addWordMap($word);
-        }
+            $workMap = [];
+            foreach ($words as $word) {
+                $this->addWordMap($word, $workMap);
+            }
+
+            return $workMap;
+        });
     }
 
-    private function addWordMap($word)
+    private function addWordMap($word, &$wordMap)
     {
         $len = mb_strlen($word);
 
-        $wordMap = &$this->wordMap;
         for ($i = 0; $i < $len; $i++) {
             $txt = mb_substr($word, $i, 1);
 
@@ -81,8 +83,6 @@ class SensitiveHandle
                     $wordMap[$txt]['end'] = 0;
                 }
             }
-            
-            $wordMap = &$wordMap[$txt];
         }
     }
 
