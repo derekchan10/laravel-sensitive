@@ -6,7 +6,7 @@ Sensitive Fliter for Laravel5 based on [geek-dc/laravel-sensitive](https://githu
 ## Install
 
 ```shell
-composer require yankewei/laravel-sensitive
+composer require geek-dc/laravel-sensitive
 ```
 
 ## For Laravel
