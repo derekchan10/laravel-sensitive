@@ -49,7 +49,7 @@ class SensitiveHandle
      */
     private function setWords()
     {
-        $this->wordMap = Cache::remember('sensitive.words', config('sensitive.cache'), function () {
+        $this->wordMap = Cache::remember(config('sensitive.key'), config('sensitive.cache'), function () {
             $words = DB::table(config('sensitive.table'))->where('is_del', 0)->pluck(config('sensitive.field'))->toArray();
 
             $workMap = [];
@@ -83,6 +83,8 @@ class SensitiveHandle
                     $wordMap[$txt]['end'] = 0;
                 }
             }
+
+            $wordMap = &$wordMap[$txt];
         }
     }
 
