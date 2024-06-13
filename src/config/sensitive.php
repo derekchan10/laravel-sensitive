@@ -4,7 +4,10 @@ return [
     'table' => 't_sensitive_words',
     // 关键词字段
     'field' => 'content',
-    
+
+    // 设置关键词缓存key
+    'key' => 'sensitive.words',
+
     // 设置关键词缓存时间
     'cache' => 0,
 
